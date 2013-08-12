@@ -1,0 +1,16 @@
+steal(
+	'jquery'
+,	'can/construct'
+,	'can/construct/super'
+,	'can/construct/proxy'
+,	'can/control'
+,	'can/model'
+,	'can/view/ejs'
+,	'can/view/mustache'
+,	'can/route'
+,	'can/control/route'
+,	'can/control/plugin'
+,	'underscore'
+,	'pruebas/styles'
+,	'pruebas/plugin'
+)	

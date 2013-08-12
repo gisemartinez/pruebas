@@ -1,0 +1,13 @@
+{{#if options}}
+<li class="dropdown-submenu" data-key="{{key}}" {{data 'option'}}>
+			<a class="dropdown-toggle" data-toggle="dropdown">
+				{{name}}
+			</a>
+			{{>views/menu_submenu.mustache}}
+		</li>
+{{else}}
+<li class="{{key}}" data-key="{{key}}" {{data 'option'}}>
+			<a class="dropdown-toggle" data-toggle="dropdown">
+				{{name}}
+			</a>
+{{/if}}

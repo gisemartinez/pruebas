@@ -1,0 +1,217 @@
+OPTION
+{
+	name: "Option Name"
+,	key: "myOptionOne"
+,	function: function(element,event){console.log("BLALBALA")}
+,	options:
+	[
+		OPTION
+		{
+			name:	"Option Name"
+		,	options: []
+		}
+	]
+}
+
+menu_options.mustache
+
+{{#options}}
+<ul>
+	<li {{data 'option'}}>
+		{{name}}
+	{{# if options}}
+		{{>menu_submenu_options.mustache}}
+	{{/if}}
+	</li>
+</ul>
+{{/options}}
+
+menu_submenu_options.mustache
+{{#options}}
+<ul class="submenu">
+	<li class="{{key}}" data-key="{{key}}"" {{data 'option'}}>
+		{{name}}
+	</li>
+</ul>
+{{/options}}
+
+
+'li click':function(el,ev)
+{
+	//	el	->	can.$('li')
+	//	ev	->	evento (click)
+	if	(el.data('options'))
+		el.find('ul.submenu').show()
+
+}
+
+
+init: function(element,options)
+{
+	//	element = this.element
+	//	options = this.options
+
+	can.each(
+		options.menu_options
+	,	this.key_binding
+	)
+}
+
+key_binding:function(menu_option,key,original)
+{
+	can.bind.call(
+		this.element.find('li[data-key="'+menu_option.key+'"]')
+	,	'click'
+	,	menu_option.function
+	)
+}
+
+
+can.Control(
+	'Gise.Control'
+,	{
+		defaults:
+		{
+			view:			'gise_folder/view.mustache'
+		,	view_loading:	'gise_folder/loading_msg.mustache'
+		,	view_error:		'gise_folder/error_msg.mustache'
+		,	data:	undefined
+		}
+	}
+,	{
+		init: function(element,options)
+		{
+			//	SI HAY UN ERROR Y NO ES DEL CONTROLLER NO PUEDE FALTAR LA PALABRA PELOTUDO
+			if	(!options.view)
+				throw new Error("ME PASASTE UNA VISTA VACIA PELOTUDO")
+			else
+			if	(!options.data)
+				throw new Error("NO ME PASASTE LA DATA PELOTUDO")
+			else
+			if	(can.isDeferred(data))
+				this._render_deferred(data)
+			else
+				if	(
+						options.data instanceof can.Observe
+					||	options.data instanceof can.Observe.List
+					)
+						this._render_content(data)
+				else
+					this._render_object(data)
+		}
+
+	,	_render_deferred: function(data)
+		{
+			this._render_loading()
+
+			data
+			.then(
+				//	SUCCESS
+				this._render_content
+				//	ERROR
+			,	this._render_error
+			)
+		}
+
+	,	_render_object:function(data)
+		{
+			if	(can.isArray(data))
+				this._render_content(new can.Observe.List(data))
+			else
+				this._render_content(new can.Observe(data))
+
+			/*
+				this._render_content(
+						can.isArray(data)
+						?	new can.Observe.List(data)
+						:	new can.Observe(data)
+					)
+			*/
+		}
+
+	,	_render_content: function(data)
+		{
+			can.append(
+				this.element
+			,	can.view(
+					options.view
+				,	data
+				)
+			)
+		}
+
+	,	_render_loading: function()
+		{
+			can.append(
+				this.element
+			,	can.view(
+					options.view
+				)
+			)
+		}
+
+	,	_render_error: function(error)
+		{
+			can.append(
+				this.element
+			,	can.view(
+					options.view
+				,	error
+				)
+			)
+		}
+	}
+)
+				
+
+Gise.Control(
+	'Gise.Menu'
+,	{
+		defaults:
+		{
+			/*
+				data -> Array de Opciones
+				Opciones -> Un Objecto
+					{
+						name: Un Nombre
+					,	key: Una Clave Para la opcion
+					,	options: -> un Array de Opciones
+					}
+			*/
+			data:	undefined
+		,	view: 	undefined
+		}
+	}
+,	{
+		init: function(element,options)
+		{
+			this._super(element,options)
+			EXTIENDO Y HAGO ALGO MAS
+		}
+	}
+)
+
+Gise.Menu(
+	'Milkrun.Menu'
+,	{
+		defaults:
+		{
+			mynuevo: "asdadas"
+		}
+	}
+,	{
+		'li.nuevo click': function()
+		{
+			console.log(this.options.mynuevo)
+		}
+	}
+)
+
+new	Milkrun.Menu(
+		$('.myMenu')
+	,	{
+			view: 'myView.mustache'
+		,	menu_options: un Observable del tipo menu_options
+		,	mynuevo: "ALGO NUEVO"
+		}
+	)
