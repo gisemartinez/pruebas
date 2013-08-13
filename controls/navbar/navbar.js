@@ -18,7 +18,10 @@ steal(
 						this._super(data)
 						this.element.find('ul:first').addClass("nav navbar-nav")
 					}
-				,	'ul li admin'
+				,	'ul li.data-admin click':function()
+					{
+						alert('capo')
+					}
 
 				}
 			)
