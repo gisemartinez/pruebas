@@ -19,62 +19,80 @@
 			,	'jquery'
 			,	"pruebas/lib.js"
 			).then(
-					'pruebas/controls/menu'
+					'pruebas/controls/navbar'
 				).then(
 				function(){
-					new Menu(
+					new Navbar(
 							'div#nav'
 						,	{
 							data:new can.Observe(
-									{
-										options:
-										[
+									// {
+									// 	options:
+									// 	[
 											{
-												name:'Menu1'
-											,	key:'menuPrincipal'
-											,	options:
-												[
-													{
-														name:'opcion1'
-													,	options:
-														[
-															{
-																name:'opcion6'
-															,	options:
-																[
-																	{name:'opcion8'}
-																,	{name:'opcion9'}
-																]
-															}
+												name:'Toshota Tsusho'
+											,	key:'brand'
+											,	usr:
+												{
+													name:'User'
+												,	key:'usr'
+												,	options:
+													[
+														{
+															name:'opcion6'
+														,	options:
+															[
+																{name:'opcion8'}
+															,	{name:'opcion9'}
+															]
+														}
 													,	
-															{
-																name:'opcion7'
-															}
-														]
-													}
-												,	{
-														name:'opcion2'
-													}
-												]
-											}
-										,	{
-												name:'Menu2'
+														{
+															name:'opcion7'
+														}
+													]
+												}
 											,	options:
 												[
 													{
-														name:'opcion3'
+														name:'Administracion'
+													,	key:'admin'
+													// ,	options:
+													// 	[
+													// 		{
+													// 			name:'opcion6'
+													// 		,	options:
+													// 			[
+													// 				{name:'opcion8'}
+													// 			,	{name:'opcion9'}
+													// 			]
+													// 		}
+													// ,	
+													// 		{
+													// 			name:'opcion7'
+													// 		}
+													// 	]
 													}
 												,	{
-														name:'opcion4'
+														name:'Dashboard'
+													,	key:'dash'
+													}
+												,	{
+														name:'Programacion'
+													,	key:'prog'
+													}
+												,	{
+														name:'Simulacion'
+													,	key:'simul'
+													}
+												,	{
+														name:'Cotizacion'
+													,	key:'cotiz'
 													}
 												]
 											}
-										,	{
-												name:'opcion5'
-											//,	options:undefined
-											}
-										]
-									}
+									// 	]
+									// }
 								)
 						,	view:'pruebas/views/navbar.mustache'
 						}
