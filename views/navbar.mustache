@@ -1,24 +1,26 @@
-<div class="navbar">
-	<div class="navbar-inner">
-		
-		<a class="brand">{{name}}</a>
-		<div class="container" style="width: auto;">
-			{{>views/menu.mustache}}
-			{{#if usr}}
-				<ul class="data-{{key}} nav pull-right">
-					<li class="dropdown data-{{key}}">
-						<a class="dropdown-toggle" data-toggle="dropdown">
-							{{usr.name}}
-						</a>
-						<ul class="dropdown-menu">
-							{{#usr.options}}
-								{{>views/usr.mustache}}
-							{{/usr.options}}
-						</ul>
-					</li>	
-					
-				</ul>
-			{{/if}}
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar">
+		<div class="navbar-inner">
+			
+			<a class="brand">{{name}}</a>
+			<div class="container" style="width: auto;">
+				{{>views/menu.mustache}}
+				{{#if usr}}
+					<ul class="data-{{key}} nav pull-right">
+						<li class="dropdown data-{{key}}">
+							<a class="dropdown-toggle" data-toggle="dropdown">
+								{{usr.name}}
+							</a>
+							<ul class="dropdown-menu">
+								{{#usr.options}}
+									{{>views/usr.mustache}}
+								{{/usr.options}}
+							</ul>
+						</li>	
+						
+					</ul>
+				{{/if}}
+			</div>
 		</div>
 	</div>
 </div>
