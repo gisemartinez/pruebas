@@ -1,6 +1,6 @@
 steal(
 	"pruebas/lib.js"
-,	"pruebas/views/index.mustache"
+,	"pruebas/views/index/index.mustache"
 ).then(
 	function(){
 		can.Control(
@@ -8,7 +8,7 @@ steal(
 			,	{}
 			,	{
 					init:function(){
-						var template= can.view("pruebas/views/index.mustache")
+						var template= can.view("pruebas/views/index/index.mustache")
 						can.$(this.element).append(template)
 					}
 					

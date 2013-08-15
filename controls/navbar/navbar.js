@@ -1,9 +1,7 @@
 steal(
 	'pruebas/lib.js'
-,	'pruebas/views/navbar.mustache'
-,	'pruebas/views/admin.mustache'
 ,	'pruebas/controls/sigma'
-,	'pruebas/controls/admin'
+,	'./util.js'
 ).then(
 	function(){
 		Sigma.Control(
@@ -45,12 +43,73 @@ steal(
 							,	ev
 							,	Sigma.Admin
 							,	{
-									data: {}
-								,	view: 'pruebas/views/admin.mustache'
+									data: 
+											new can.Observe.List(
+												[
+													{
+														id:'1'
+													,	name:'Bob'
+													,	lastname:'Esponja'
+													,	city: 'Fondo de Bikini'
+													}
+												,	{
+														id:'2'
+													,	name:'Patricio'
+													,	lastname:'Estrella'
+													,	city: 'Fondo de Bikini'
+													}	
+												]
+											)
+										
+								,	view: 'pruebas/views/admin/admin.mustache'
 								}
 							)
 					}
-
+				,	'ul li.data-dash click':function(el,ev){
+						this.navegate(
+								el
+							,	ev
+							,	Sigma.Dash
+							,	{
+									data: {}
+								,	view: 'pruebas/views/dash/dash.mustache'
+								}
+							)
+					}
+				,	'ul li.data-prog click':function(el,ev)
+					{
+						this.navegate(
+								el
+							,	ev
+							,	Sigma.Prog
+							,	{
+									data: {}
+								,	view: 'pruebas/views/prog/prog.mustache'
+								}
+							)
+					}
+				,	'ul li.data-simul click':function(el,ev){
+						this.navegate(
+								el
+							,	ev
+							,	Sigma.Simulador
+							,	{
+									data: {}
+								,	view: 'pruebas/views/simulador/simulador.mustache'
+								}
+							)
+					}
+				,	'ul li.data-cotiz click':function(el,ev){
+						this.navegate(
+								el
+							,	ev
+							,	Sigma.Cotizacion
+							,	{
+									data: {}
+								,	view: 'pruebas/views/cotizacion/cotizacion.mustache'
+								}
+							)
+					}
 				,	navegate: function(li,ev,control,control_options)
 					{
 						/*stopPropagation() y preventDefault() son

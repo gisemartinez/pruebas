@@ -1,8 +1,8 @@
 steal(
 	'pruebas/lib.js'
 ).then(
-	'pruebas/views/index.mustache'
-,	'pruebas/views/error.mustache'
+	'pruebas/views/index/index.mustache'
+,	'pruebas/views/index/error.mustache'
 ).then(
 	function(){
 		var Sigma= {}
@@ -13,8 +13,8 @@ steal(
 			{
 				defaults:
 					{
-						view:'pruebas/views/index.mustache'
-					,	view_error:'pruebas/views/error.mustache'
+						view:'pruebas/views/index/index.mustache'
+					,	view_error:'pruebas/views/index/error.mustache'
 					,	data:undefined
 					,	msg_error: new can.Observe({text:'Ocurrio un error inesperado'})
 					,	msg_empty: new	can.Observe({text:'No se envio data'})

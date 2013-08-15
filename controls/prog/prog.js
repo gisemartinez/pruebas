@@ -4,7 +4,7 @@ steal(
 ).then(
 	function(){
 		Sigma.Control(
-				'Sigma.Admin'
+				'Sigma.Prog'
 			,	{
 					defaults:{
 						view:undefined
@@ -12,7 +12,7 @@ steal(
 				}
 			,	{
 					' tunning':function(){
-						console.log(this.options)
+						console.log('Programacion')
 					}
 				}
 			)

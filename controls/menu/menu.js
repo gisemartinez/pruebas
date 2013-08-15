@@ -1,6 +1,6 @@
 steal(
 	'pruebas/lib.js'
-,	'pruebas/views/navbar.mustache'
+,	'pruebas/views/topbar/navbar.mustache'
 ,	'pruebas/controls/sigma'
 ).then(
 	function(){
