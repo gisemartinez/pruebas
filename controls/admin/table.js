@@ -1,12 +1,11 @@
 steal(
 	'pruebas/lib.js'
 ,	'pruebas/controls/sigma'
-,	'pruebas/controls/admin/table.js'
-,	'pruebas/views/admin/table.mustache'
+,	'pruebas/controls/admin/fila.js'
 ).then(
 	function(){
 		Sigma.Control(
-				'Sigma.Admin'
+				'Sigma.Table'
 			,	{
 					defaults:{
 						view:undefined
@@ -16,14 +15,13 @@ steal(
 					_render_content: function(data)
 					{
 						this._super(data)
-						new Sigma.Table(
-								this.element.find('#table-admin')
+						new Sigma.Fila(
+								this.element.find('tr')
 							,	
-								{
-									data: this.options.data
-								,	view: 'pruebas/views/admin/table.mustache'
-								}
+								{}
+
 							)
+						
 						
 					}
 				,	' tunning':function(){
