@@ -2,45 +2,10 @@ steal(
 	'pruebas/lib.js'
 ,	'pruebas/controls/sigma'
 ,	'pruebas/views/admin/modal.mustache'
+,	'pruebas/controls/modal'
+,	'pruebas/views/form/form.mustache'
 ).then(
 	function(){
-
-		can.Control(
-			'Sigma.Modal'
-		,	{
-				defaults:
-				{
-					view: 	undefined
-				,	bindings: undefined
-				}
-			}
-		,	{
-				init: function(element,options)
-				{
-					var	$element
-					=	this.element
-
-					can.append(
-						this.element
-					,	can.view(
-							this.options.view
-						)
-					)
-
-					can.each(
-						this.options.bindings
-					,	function(func,selector)
-						{
-							can.bind.call(
-								$element.find(selector)
-							,	'click'
-							,	func
-							)
-						}
-					)
-				}
-			}
-		)
 
 		can.Control(
 				'Sigma.Fila'
@@ -55,10 +20,14 @@ steal(
 						this.$delete_modal
 						=	can.$('<div>')
 
+						this.element
+								.addClass('sigma-control')
+
 						new Sigma.Modal(
 							this.$delete_modal
 						,	{
-								view: 'pruebas/views/admin/modal.mustache'
+								view: undefined
+							,	inside_view: 'pruebas/views/form/form.mustache'
 							,	bindings:
 								{
 									'.btn-primary': function()

@@ -23,6 +23,8 @@ steal(
 			}
 		,	{
 				init:function(elem,options){
+					this.element
+							.addClass('sigma-control')
 					if(!options.data)
 						this._render_error(options.msg_empty)
 					else

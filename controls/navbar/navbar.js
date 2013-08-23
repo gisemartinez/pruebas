@@ -24,16 +24,32 @@ steal(
 				,	generate_content: function()
 					{
 						if	(this.element.find('#'+this.options.content_div).length)
-							this.element
-									.find("#"+this.options.content_div)
-										.remove()
-						
+						{
+							// this.remove_children(
+									this.element
+											.find("#"+this.options.content_div)
+												.find('.sigma-control')
+													.unbind()
+									this.element
+											.find("#"+this.options.content_div)
+												.remove()
+								// )
+						}
 						can.append(
 							this.element
 						,	can.$('<div id="'+this.options.content_div+'">')
 						)
 
 						return	this.element.find('#'+this.options.content_div)
+					}
+
+				,	remove_children: function(elements)
+					{
+						if	(elements.children().length)
+							console.log(elements.children().each())
+							
+						else 
+							return elements.remove()
 					}
 
 				,	'ul li.data-admin click':function(el,ev)
