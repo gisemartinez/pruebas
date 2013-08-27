@@ -25,7 +25,12 @@ steal(
 					{
 						if	(this.element.find('#'+this.options.content_div).length)
 						{
-							// this.remove_children(
+							this.remove_children(
+								this.element
+											.find("#"+this.options.content_div)
+
+								)
+							/*// this.remove_children(
 									this.element
 											.find("#"+this.options.content_div)
 												.find('.sigma-control')
@@ -33,7 +38,7 @@ steal(
 									this.element
 											.find("#"+this.options.content_div)
 												.remove()
-								// )
+								// )*/
 						}
 						can.append(
 							this.element
@@ -46,10 +51,15 @@ steal(
 				,	remove_children: function(elements)
 					{
 						if	(elements.children().length)
-							console.log(elements.children().each())
+								this.remove_children(elements.children())
 							
 						else 
-							return elements.remove()
+							{
+								elements.unbind()
+								elements.remove()
+							}
+						elements.unbind()
+						elements.remove()
 					}
 
 				,	'ul li.data-admin click':function(el,ev)
