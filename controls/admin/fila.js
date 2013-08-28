@@ -20,8 +20,8 @@ steal(
 						this.$delete_modal
 						=	can.$('<div>')
 
-						this.element
-								.addClass('sigma-control')
+						// this.element
+						// 		.addClass('sigma-control')
 
 						new Sigma.Modal(
 							this.$delete_modal

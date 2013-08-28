@@ -11,6 +11,7 @@ steal(
 					defaults:
 					{
 						view: 	'pruebas/views/admin/modal.mustache'
+					,	inside_view: undefined
 					,	bindings: undefined
 					}
 				}
@@ -20,16 +21,14 @@ steal(
 						var	$element
 						=	this.element
 
-						this.element
-								.addClass('sigma-control')
-
 						can.append(
 							this.element
 						,	can.view(
 								this.options.view
 							)
 						)
-
+						console.log('.modal-body')
+						
 						can.each(
 							this.options.bindings
 						,	function(func,selector)
