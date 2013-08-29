@@ -1,9 +1,9 @@
 steal(
 	'pruebas/lib.js'
 ,	'pruebas/controls/sigma'
-,	'pruebas/views/admin/modal.mustache'
 ,	'pruebas/controls/modal'
-,	'pruebas/views/form/form.mustache'
+,	'pruebas/models/personajes.js'
+,	'pruebas/fixtures/personajes.js'
 ).then(
 	function(){
 
@@ -17,26 +17,42 @@ steal(
 			,	{
 					init: function(element,options)
 					{
-						this.$delete_modal
+						
+						this.$modal_edit
+						=	can.$('<div>')
+						this.$modal_delete
 						=	can.$('<div>')
 
-						// this.element
-						// 		.addClass('sigma-control')
-
 						new Sigma.Modal(
-							this.$delete_modal
+							this.$modal_edit
 						,	{
-								view: undefined
-							,	inside_view: 'pruebas/views/form/form.mustache'
+								view: 'views/modal/modal-edit.mustache'
+							
+							,	data:	options.data
 							,	bindings:
 								{
 									'.btn-primary': function()
 									{
-										console.log("DELETE")
+										//deberia llamar un controller q guarde esta data
+										//o uno q compare y dsps guarde
+										p = new Personajes(options.data._data)
+										p.save()
+										console.log(options.data._data)
 									}
-								,	'.btn:not(.btn-primary)': function()
+								}
+							}
+						)
+						new Sigma.Modal(
+							this.$modal_delete
+						,	{
+								view: 'views/modal/modal-remove.mustache'
+							
+							,	data:	options.data
+							,	bindings:
+								{
+									'.btn-primary': function()
 									{
-										console.log("CANCELAR")
+										console.log("Aceptar")
 									}
 								}
 							}
@@ -65,15 +81,16 @@ steal(
 						// )
 					}
 
+				,	'i.icon-edit click':function()
+					{
+		
+						this.$modal_edit.modal()
+						
+					}
 				,	'i.icon-remove click':function()
 					{
-						this.$delete_modal.modal()
-						console.log("apreto el x")
-					}
-
-				,	delete: function(el,ev)
-					{
-						console.log("DELETE")
+						
+						this.$modal_delete.modal()
 					}
 				}
 			)

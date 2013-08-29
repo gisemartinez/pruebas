@@ -13,4 +13,5 @@ steal(
 ,	'underscore'
 ,	'pruebas/styles'
 ,	'pruebas/plugin'
+,	'can/util/fixture'
 )	

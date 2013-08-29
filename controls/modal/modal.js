@@ -1,7 +1,6 @@
 steal(
 	'pruebas/lib.js'
 ,	'pruebas/controls/sigma'
-,	'pruebas/views/admin/modal.mustache'
 
 ).then(
 	function(){
@@ -10,8 +9,8 @@ steal(
 			,	{
 					defaults:
 					{
-						view: 	'pruebas/views/admin/modal.mustache'
-					,	inside_view: undefined
+						view: 	undefined
+					
 					,	bindings: undefined
 					}
 				}
@@ -25,10 +24,10 @@ steal(
 							this.element
 						,	can.view(
 								this.options.view
-							)
+							,	options.data
+								)	
 						)
-						console.log('.modal-body')
-						
+		
 						can.each(
 							this.options.bindings
 						,	function(func,selector)

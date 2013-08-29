@@ -30,15 +30,7 @@ steal(
 											.find("#"+this.options.content_div)
 
 								)
-							/*// this.remove_children(
-									this.element
-											.find("#"+this.options.content_div)
-												.find('.sigma-control')
-													.unbind()
-									this.element
-											.find("#"+this.options.content_div)
-												.remove()
-								// )*/
+							
 						}
 						can.append(
 							this.element

@@ -15,14 +15,20 @@ steal(
 					_render_content: function(data)
 					{
 						this._super(data)
-						new Sigma.Fila(
-								this.element.find('tr')
-							,	
-								{}
 
-							)
-						
-						
+						this.element.find('tr')
+								.each(
+									function()
+									{
+										// console.log(can.$(this).data('fila'))
+										new Sigma.Fila(
+											can.$(this)
+										,	{
+												data:	can.$(this).data('fila')
+											}
+										)
+									}
+								)
 					}
 				,	' tunning':function(){
 						console.log(this.options)
