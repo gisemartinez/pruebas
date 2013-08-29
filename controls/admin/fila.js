@@ -17,7 +17,8 @@ steal(
 			,	{
 					init: function(element,options)
 					{
-						
+						var	self
+						=	this
 						this.$modal_edit
 						=	can.$('<div>')
 						this.$modal_delete
@@ -35,9 +36,19 @@ steal(
 									{
 										//deberia llamar un controller q guarde esta data
 										//o uno q compare y dsps guarde
-										p = new Personajes(options.data._data)
-										p.save()
-										console.log(options.data._data)
+										self.$modal
+										p = new Personajes()
+										// Personajes.update(options.data.attr('id'),can.deparam($('form').serialize()))
+										// p.save(options.data._data)
+										// Personajes.findAll({},
+										// 	function( todos ){
+											  
+										// 	  // $.each(todos, function(i, todo){
+										// 	  //   console.log( todo.name )
+										// 	  // })
+										// 	})
+
+										console.log(options.data)
 									}
 								}
 							}

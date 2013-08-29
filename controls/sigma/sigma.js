@@ -41,16 +41,30 @@ steal(
 				}
 			,	_render_deferred:function(data){
 					//this._render_loading()
+					var	self
+					=	this
 					data
 					.then(
 							//	SUCCESS
-							this._render_content
+							can.proxy(self._render_content,self)
+							/*
+							function(data)
+							{
+								self._render_content(data)
+							}
+							*/
 							//	ERROR
-						,	this._render_error
+						,	can.proxy(self._render_error,self)
+							/*
+							function(error)
+							{
+								self._render_error(error)
+							}
+							*/
 						)
 				}
 			,	_render_content:function(data){
-
+					console.log(this)
 					can.append(
 						this.element
 					,	can.view(
