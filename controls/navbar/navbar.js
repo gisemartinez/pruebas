@@ -40,19 +40,19 @@ steal(
 						return	this.element.find('#'+this.options.content_div)
 					}
 
-				,	remove_children: function(elements)
-					{
-						if	(elements.children().length)
-								this.remove_children(elements.children())
+				// ,	remove_children: function(elements)
+				// 	{
+				// 		if	(elements.children().length)
+				// 				this.remove_children(elements.children())
 							
-						else 
-							{
-								elements.unbind()
-								elements.remove()
-							}
-						elements.unbind()
-						elements.remove()
-					}
+				// 		else 
+				// 			{
+				// 				elements.unbind()
+				// 				elements.remove()
+				// 			}
+				// 		elements.unbind()
+				// 		elements.remove()
+				// 	}
 
 				,	'ul li.data-admin click':function(el,ev)
 					{

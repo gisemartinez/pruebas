@@ -22,81 +22,82 @@
 					'pruebas/controls/navbar'
 				).then(
 				function(){
+					// new login(
+					// 		'#home'
+					// 	,	{
+					// 			data: new can.Observe({})
+					// 		,	view:'views/login.mustache'
+					// 		}
+					// 	)
 					new Sigma.Topbar(
 							'#home'
 						,	{
-							data:new can.Observe(
-									// {
-									// 	options:
-									// 	[
-											{
-												name:'Sodero'
-											,	key:'brand'
-											,	usr:
+								data:new can.Observe(
 												{
-													name:'User'
-												,	key:'usr'
+													name:'Sodero'
+												,	key:'brand'
+												,	usr:
+													{
+														name:'User'
+													,	key:'usr'
+													,	options:
+														[
+															{
+																name:'opcion6'
+															,	options:
+																[
+																	{name:'opcion8'}
+																,	{name:'opcion9'}
+																]
+															}
+														,	
+															{
+																name:'opcion7'
+															}
+														]
+													}
 												,	options:
 													[
 														{
-															name:'opcion6'
-														,	options:
-															[
-																{name:'opcion8'}
-															,	{name:'opcion9'}
-															]
+															name:'Administracion'
+														,	key:'admin'
+														// ,	options:
+														// 	[
+														// 		{
+														// 			name:'opcion6'
+														// 		,	options:
+														// 			[
+														// 				{name:'opcion8'}
+														// 			,	{name:'opcion9'}
+														// 			]
+														// 		}
+														// ,	
+														// 		{
+														// 			name:'opcion7'
+														// 		}
+														// 	]
 														}
-													,	
-														{
-															name:'opcion7'
+													,	{
+															name:'Dashboard'
+														,	key:'dash'
+														}
+													,	{
+															name:'Programacion'
+														,	key:'prog'
+														}
+													,	{
+															name:'Simulador'
+														,	key:'simul'
+														}
+													,	{
+															name:'Cotizacion'
+														,	key:'cotiz'
 														}
 													]
 												}
-											,	options:
-												[
-													{
-														name:'Administracion'
-													,	key:'admin'
-													// ,	options:
-													// 	[
-													// 		{
-													// 			name:'opcion6'
-													// 		,	options:
-													// 			[
-													// 				{name:'opcion8'}
-													// 			,	{name:'opcion9'}
-													// 			]
-													// 		}
-													// ,	
-													// 		{
-													// 			name:'opcion7'
-													// 		}
-													// 	]
-													}
-												,	{
-														name:'Dashboard'
-													,	key:'dash'
-													}
-												,	{
-														name:'Programacion'
-													,	key:'prog'
-													}
-												,	{
-														name:'Simulador'
-													,	key:'simul'
-													}
-												,	{
-														name:'Cotizacion'
-													,	key:'cotiz'
-													}
-												]
-											}
-									// 	]
-									// }
-								)
-						,	view:'pruebas/views/topbar/navbar.mustache'
-						}
-							
+											)
+							,	view:'pruebas/views/topbar/navbar.mustache'
+							}	
 						)
 				}
 			)

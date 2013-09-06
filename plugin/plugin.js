@@ -1,3 +1,3 @@
 steal(
-	"pruebas/bootstrap/js/bootstrap.js"
+	"pruebas/bootstrap/js/bootstrap.min.js"
 )

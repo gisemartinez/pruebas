@@ -9,7 +9,19 @@ steal(
 				findOne: 'GET /personajes/{id}.json',
 				create:  'POST /personajes.json',
 				update:  'PUT /personajes/{id}.json',
-				destroy: 'DELETE /personajes/{id}.json' 
+				destroy: 'DELETE /personajes/{id}.json'
+				signin: function()
+				{
+					return true
+				},
+				signup: function()
+				{
+					return true
+				},
+				signout: function()
+				{
+					return true
+				}
 			}
 		,	{}
 		)
