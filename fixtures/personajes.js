@@ -23,6 +23,24 @@ steal(
 			,	city:'Fondo de Bikini'
 			}
 		]
+		var usuarios=
+		[
+			{
+				id:1
+			,	username:'user1'
+			,	password:'pass1'
+			}
+		,	{
+				id:2
+			,	username:'user2'
+			,	password:'pass2'
+			}
+		,	{
+				id:3
+			,	username:'user3'
+			,	password:'pass3'
+			}
+		]
 		can.fixture(
 				'POST /personajes.json'
 			,	function(original, respondWith, settings)
@@ -45,6 +63,34 @@ steal(
 				{
 					console.log('llega el get')
 					respondWith(200, "success", jsonA, {})
+				}
+			)
+		can.fixture(
+				'POST /signin'
+			,	function(original,respondWith)
+				{
+					
+					var	found
+					=	_.find(
+							usuarios
+						,	function(usuario)
+							{
+								
+								return	_.isEqual(usuario.username,original.data.username)
+									&&	_.isEqual(usuario.password,original.data.password)
+							}
+						)
+					return	respondWith(
+								found ? 200 : 404
+							,	found || {msg: "No lo encontre"}
+							)
+				}
+			)
+		can.fixture(
+				'POST /signup'
+			,	function(original,respondWith)
+				{
+					return	respondWith(200,usuarios.push(original.body))
 				}
 			)
 	}
