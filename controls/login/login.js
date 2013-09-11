@@ -3,88 +3,43 @@ steal(
 ,	'pruebas/controls/sigma'
 ,	'./login.css'
 ,	'pruebas/controls/navbar'
+,	'pruebas/views/login.mustache'
+,	'pruebas/models/personajes.js'
+,	'pruebas/fixtures/personajes.js'
 ).then(
 	function(){
-		Sigma.Control(
+		can.Control(
 				'login'
 			,	{
 					default:
 					{
-						data: undefined
-					,	view: undefined
-					,	usr_data: undefined
+						view:'pruebas/views/login.mustache'
+					,	view_signup:undefined
+						
 					
 					}
 				}
-			,	{
-					'.btn click': function(element,ev)
+			,	{	init: function(element,options)
+					{
+						console.log(this.options.usr_model)
+						can.append(
+								element
+							,	can.view(options.view)
+							)
+					}
+
+				,	'.btn click': function(element,ev)
 					{
 						
-						if(signin(this.options.usr_data))
-							{	
-								this.remove_children(
-									$('#home')
-									)
-								new Sigma.Topbar(
-									'body'
-								,	{
-										data:new can.Observe(
-												{
-													name:'Sodero'
-												,	key:'brand'
-												,	usr:
-													{
-														name:'User'
-													,	key:'usr'
-													,	options:
-														[
-															{
-																name:'opcion6'
-															,	options:
-																[
-																	{name:'opcion8'}
-																,	{name:'opcion9'}
-																]
-															}
-														,	
-															{
-																name:'opcion7'
-															}
-														]
-													}
-												,	options:
-													[
-														{
-															name:'Administracion'
-														,	key:'admin'
-														}
-													,	{
-															name:'Dashboard'
-														,	key:'dash'
-														}
-													,	{
-															name:'Programacion'
-														,	key:'prog'
-														}
-													,	{
-															name:'Simulador'
-														,	key:'simul'
-														}
-													,	{
-															name:'Cotizacion'
-														,	key:'cotiz'
-														}
-													]
-												}
-											)
-									,	view:'pruebas/views/topbar/navbar.mustache'
-									}	
+						var data_usr
+						=this.options.usr_model
+							.signin(
+									can.deparam(
+											this.element.find('form').serialize()
+										)
 								)
-							}
-						else
-							{
+						console.log(data_usr)
 
-							}
 					}
 				}
 			)

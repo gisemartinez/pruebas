@@ -20,14 +20,14 @@
 			,	"pruebas/lib.js"
 			).then(
 					'pruebas/controls/login'
+				,	'pruebas/models/personajes.js'
 				).then(
 				function(){
 					new login(
 							'#home'
 						,	{
-								data: new can.Observe({})
+								usr_model: new Personajes()
 							,	view:'views/login.mustache'
-							,	usr_data:true
 							}
 						)
 					// new Sigma.Topbar(

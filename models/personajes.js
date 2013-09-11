@@ -8,12 +8,9 @@ steal(
 				findAll: 'GET /personajes.json',
 				findOne: 'GET /personajes/{id}.json',
 				create:  'POST /personajes.json',
-				update:  'PUT /personajes/{id}.json',
-				destroy: 'DELETE /personajes/{id}.json'
-				signin: function()
-				{
-					return true
-				},
+				//update:  'PUT /personajes/{id}.json',
+				destroy: 'DELETE /personajes/{id}.json',
+				signin: 'PUT /personajes.json',
 				signup: function()
 				{
 					return true

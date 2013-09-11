@@ -32,7 +32,7 @@ steal(
 				}
 			)
 		can.fixture(
-				'PUT /personajes/{id}.json'
+				'PUT /personajes.json'
 			,	function(original, respondWith, settings)
 				{
 					console.log('llega el update')
